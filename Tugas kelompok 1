@@ -20,7 +20,6 @@ public class Main {
 
         System.out.println("Menu spesial hari ini");
         System.out.println("=====================");
-
         for (int i = 0; i < menumakanan.length; i++) {
             System.out.println(String.format("%-2s %-50s %-15s", "", i + 1 + ". " + menumakanan[i], "@ Rp. " + harga[i]));
         }
@@ -38,9 +37,9 @@ public class Main {
             } while (order > 10);
             orders[i] = order;
         }
-
         System.out.println();
         System.out.println("Selamat menikmati makanan anda...");
+        System.out.println("Pembelian :");
         double total = 0;
         for (int i = 0; i < menumakanan.length; i++) {
             double totalpesanan = orders[i] * harga[i];
@@ -54,14 +53,14 @@ public class Main {
         System.out.println("===============================================================================");
         System.out.println(String.format("%-56s %-10s %-10s", "Total Pembelian ", " = Rp. ", String.format("%.2f", total)));
         double hargaDiskon = total * 0.1; // untuk menghitung harga diskon (10% dari total pembelian)
-        System.out.println(String.format("%-56s %-10s %-10s", "Harga Diskon (10%) ", " = Rp. ", String.format("%.2f", hargaDiskon) + " - "));
+        System.out.println(String.format("%-56s %-10s %-10s", "Disc. 10% < Masa Promosi > ", " = Rp. ", String.format("%.2f", hargaDiskon) + " - "));
         System.out.println("===============================================================================");
         double totalSetelahDiskon = total - hargaDiskon; // untuk menghitung total pembelian setelah diskon
-        System.out.println(String.format("%-56s %-10s %-10s", "Total Pembelian Setelah Diskon ", " = Rp. ", String.format("%.2f", totalSetelahDiskon)));
+        System.out.println(String.format("%-56s %-10s %-10s", "Total Pembelian setelah disc. 10% ", " = Rp. ", String.format("%.2f", totalSetelahDiskon)));
         double pembelianPerOrang = totalSetelahDiskon / jumlahorang; // untuk menghitung pembelian per orang
         System.out.println(String.format("%-56s %-10s %-10s", "Pembelian per Orang " + " < untuk " +  jumlahorang + " Orang " + " > ", " = Rp. ", String.format("%.2f", pembelianPerOrang)));
         System.out.println();
-        System.out.println(String.format("%62s", "Terima kasih atas kunjungan Anda.")); //menampilkan pesan
+        System.out.println(String.format("%62s", "Terima kasih atas kunjungan Anda...")); //menampilkan pesan
         System.out.println(String.format("%62s",".....Tekan ENTER untuk keluar....." )); //menampilkan pesan
     }
 }
