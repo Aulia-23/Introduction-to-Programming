@@ -1,0 +1,83 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String nama, nim;
+        int angkarandom;
+        char ulang;
+
+        do {
+            System.out.print("Masukkan Nama Anda [1...25]: ");
+            nama = scanner.nextLine();
+            if (nama.length() > 25) {
+                System.out.println("Tidak dapat lebih dari 25 karakter Silahkan coba lagi");
+            }
+        } while (nama.length() < 1 || nama.length() > 25);
+
+        do {
+            System.out.print("Masukkan NIM Anda [harus 10 karakter]: ");
+            nim = scanner.nextLine();
+            if (nim.length() <10) {
+                System.out.println(" Harus 10 karakter, silahkan coba lagi");
+            } else if ((nim.length() > 10)) {
+                System.out.println(" Harus 10 karakter, silahkan coba lagi");
+            }
+        } while (nim.length() != 10);
+
+        System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        System.out.println("Registrasi Sukses..");
+        System.out.println("Selamat Datang! " + nama + " [NIM: " + nim + "].. ^^v");
+        System.out.println("\nMari belajar macam-macam deret bilangan..");
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
+        do {
+            do {
+                System.out.print("\nMasukkan Angka Sembarang [5..20]: ");
+                angkarandom = scanner.nextInt();
+                scanner.nextLine();
+            } while (angkarandom< 5 || angkarandom > 20);
+
+            System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            System.out.println("Deret Bilangan");
+            System.out.println("##########");
+
+            System.out.println(angkarandom + " bilangan genap:");
+            int sumGenap = 0;
+            for (int i = 1; i <= angkarandom; i++) {
+                int bilanganGenap = i * 2;
+                System.out.print(bilanganGenap + "  ");
+                sumGenap += bilanganGenap;
+            }
+            System.out.println("\nHasil penjumlahan = " + sumGenap);
+
+            System.out.println("\n" + angkarandom+ " bilangan ganjil:");
+            int sumGanjil = 0;
+            for (int i = 0; i < angkarandom; i++) {
+                int bilanganGanjil = (i * 2) + 1;
+                System.out.print(bilanganGanjil + "  ");
+                sumGanjil += bilanganGanjil;
+            }
+            System.out.println("\nHasil penjumlahan = " + sumGanjil);
+
+            System.out.println("\n" + angkarandom + " bilangan fibonacci:");
+            int sumFibonacci = 0;
+            int prev = 1, curr = 1;
+            System.out.print(prev + "  " + curr + "  ");
+            sumFibonacci += prev + curr;
+            for (int i = 3; i <= angkarandom; i++) {
+                int next = prev + curr;
+                System.out.print(next + "  ");
+                sumFibonacci += next;
+                prev = curr;
+                curr = next;
+            }
+            System.out.println("\nHasil penjumlahan = " + sumFibonacci);
+
+            System.out.println("\nAnda ingin mengulang [y/t]: ");
+            ulang = scanner.next().charAt(0);
+            scanner.nextLine();
+        } while (ulang == 'Y' || ulang == 'y');
+        System.out.println("Proses Selesai ... Terimakasih");
+    }
+}
