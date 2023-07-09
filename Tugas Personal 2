@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class DeretAritmatika {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String repeat;
+
+        System.out.println("Belajar Deret Aritmatika, Geometri dan menghitung Faktorial ");
+
+        do {
+
+            int Angka;
+            do {
+                System.out.print("Masukkan banyak angka yang ingin di cetak [2..10]: ");
+                Angka = scanner.nextInt();
+            } while (Angka < 2 || Angka > 10);
+
+            // untuk memasukkan inputan beda angka
+            int beda;
+            do {
+                System.out.print("Masukkan beda masing-masing angka [2..9]: ");
+                beda = scanner.nextInt();
+            } while (beda < 2 || beda > 9);
+
+            // Deret Aritmatika
+            System.out.println("Deret Aritmatika :");
+            int aritmatika = 1;
+            for (int i = 0; i < Angka; i++) {
+                System.out.print(aritmatika + " ");
+                aritmatika += beda;
+            }
+            System.out.println();
+
+            // Deret Geometri
+            System.out.println("Deret Geometri:");
+            int geometri = 1;
+            for (int i = 0; i < Angka; i++) {
+                System.out.print(geometri + " ");
+                geometri *= beda;
+            }
+            System.out.println();
+
+            // Faktorial
+            System.out.println("Faktorial dari " + Angka + ":");
+            int faktorial = Angka;
+            int hasilFaktorial = 1;
+            for (int i = 0; i < Angka; i++) {
+                System.out.print(faktorial);
+                if (i < Angka - 1) {
+                    System.out.print(" * ");
+                }
+                hasilFaktorial *= faktorial;
+                faktorial--;
+            }
+            System.out.println(" = " + hasilFaktorial);
+
+            // Meminta input untuk mengulang perhitungan
+            System.out.print("Apakah Anda ingin mengulang perhitungan (Y/T)? ");
+            repeat = scanner.next();
+        } while (repeat.equalsIgnoreCase("Y"));
+    }
+}
